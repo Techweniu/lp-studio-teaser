@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Instagram, Facebook, Phone } from 'lucide-react'; // Usando Phone para Zap se não tiver ícone específico
+import { Instagram, Facebook, Phone } from 'lucide-react';
 import Image from 'next/image';
 
 const Footer: React.FC = () => {
@@ -76,16 +76,32 @@ const Footer: React.FC = () => {
             <h4 className="font-bold text-gray-900 mb-4 font-serif text-lg">Contato</h4>
             <ul className="space-y-3">
               <li className="text-gray-500">(64) 99662-8508</li>
-              <li className="text-gray-500">contato_studioTeaser@gmail.com</li>
+              <li className="text-gray-500">contato@studioteaser.com.br</li>
               <li className="text-gray-500 pt-4 text-sm">
-                CREFITO: xxxxxxxx
+                CREFITO: 12345-F {/* Lembre-se de alterar este número quando a cliente passar */}
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 font-sans">
-          <p>&copy; {new Date().getFullYear()} Studio Teaser. Todos os direitos reservados.</p>
+          <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
+            <p>&copy; {new Date().getFullYear()} Studio Teaser. Todos os direitos reservados.</p>
+            
+            {/* Créditos Weniu */}
+            <p className="flex items-center gap-1">
+              Desenvolvido por 
+              <a 
+                href="https://www.weniu.com.br/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="font-bold text-gray-500 hover:text-[#F58634] transition-colors"
+              >
+                Weniu
+              </a>
+            </p>
+          </div>
+
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-gray-600">Política de Privacidade</a>
             <a href="#" className="hover:text-gray-600">Termos de Uso</a>
