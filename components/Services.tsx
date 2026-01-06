@@ -2,25 +2,25 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, MessageCircle } from 'lucide-react'; // Adicionei icone de msg
+import { CheckCircle2, MessageCircle } from 'lucide-react';
 
 const Services: React.FC = () => {
   const services = [
     {
       title: "Pilates Clássico & Contemporâneo",
-      desc: "Aulas completas utilizando todos os aparelhos (Reformer, Cadillac, Chair, Barrel) para fortalecimento global."
+      desc: "Método completo com aparelhos (Reformer, Cadillac, Chair) focado em força, flexibilidade e controle corporal."
     },
     {
       title: "Tratamento de Escoliose",
-      desc: "Abordagem específica baseada em evidências para correção postural e alívio de dores em curvas da coluna."
+      desc: "Referência em tratamento especializado (com coletes e exercícios) para correção de curvas e postura em adolescentes e adultos."
     },
     {
-      title: "Reabilitação Pós-Lesão",
-      desc: "Protocolos seguros para retorno às atividades após cirurgias ou lesões esportivas."
+      title: "RPG (Reeducação Postural Global)",
+      desc: "Terapia manual focada em corrigir má postura, aliviar dores crônicas e realinhar a coluna vertebral."
     },
     {
-      title: "Gestantes e Pós-Parto",
-      desc: "Cuidado especial para preparar o corpo para o parto e recuperar a forma com segurança."
+      title: "Tratamento de Dores & Hérnias",
+      desc: "Fisioterapia especializada para quem busca viver sem dor nas costas, tratando a causa do problema e devolvendo a funcionalidade."
     }
   ];
 
@@ -32,19 +32,18 @@ const Services: React.FC = () => {
           <div className="md:w-1/3">
             <h2 className="font-serif text-4xl md:text-5xl text-gray-900 mb-6">Nossos Serviços</h2>
             <p className="text-gray-600 text-lg mb-8 font-sans">
-              Um menu completo de saúde pensado para cada etapa da sua vida. 
-              Aqui, a técnica se adapta ao aluno, nunca o contrário.
+              Um menu completo de saúde para sua coluna. 
+              Do alívio da dor à correção postural, nossa técnica se adapta à sua necessidade.
             </p>
             
-            {/* Botão Útil agora */}
             <a 
-              href="https://wa.me/5564996628508?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20os%20hor%C3%A1rios%20dispon%C3%ADveis."
+              href="https://wa.me/5564996628508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20tratamentos."
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#F58634] font-bold hover:underline text-lg inline-flex items-center gap-2 group font-sans"
             >
               <MessageCircle size={20} />
-              Consultar horários no WhatsApp
+              Falar com Fisioterapeuta
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </a>
           </div>

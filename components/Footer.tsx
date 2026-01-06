@@ -76,10 +76,9 @@ const Footer: React.FC = () => {
             <h4 className="font-bold text-gray-900 mb-4 font-serif text-lg">Contato</h4>
             <ul className="space-y-3">
               <li className="text-gray-500">(64) 99662-8508</li>
-              <li className="text-gray-500">contato@studioteaser.com.br</li>
-              <li className="text-gray-500 pt-4 text-sm">
-                CREFITO: 12345-F {/* Lembre-se de alterar este número quando a cliente passar */}
-              </li>
+              {/* MUDANÇA AQUI: Email do Briefing */}
+              <li className="text-gray-500">teaserstudio2@gmail.com</li>
+              
             </ul>
           </div>
         </div>
@@ -87,8 +86,6 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 font-sans">
           <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
             <p>&copy; {new Date().getFullYear()} Studio Teaser. Todos os direitos reservados.</p>
-            
-            {/* Créditos Weniu */}
             <p className="flex items-center gap-1">
               Desenvolvido por 
               <a 

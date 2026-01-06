@@ -2,93 +2,113 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Activity, ShieldCheck, Zap, UserCheck, Check, Star } from 'lucide-react';
 
 const Results: React.FC = () => {
+  const benefits = [
+    {
+      icon: <ShieldCheck size={28} />,
+      title: "Vida Sem Dor",
+      desc: "Tratamos a causa da hérnia e dores crônicas, não apenas o sintoma."
+    },
+    {
+      icon: <UserCheck size={28} />,
+      title: "Correção Postural",
+      desc: "Protocolos científicos para realinhamento em adolescentes e adultos."
+    },
+    {
+      icon: <Zap size={28} />,
+      title: "Funcionalidade",
+      desc: "Recupere a liberdade de movimento para o trabalho e lazer."
+    },
+    {
+      icon: <Activity size={28} />,
+      title: "Corpo Definido",
+      desc: "Tonificação da musculatura profunda com elegância e consciência."
+    }
+  ];
+
   return (
-    <section id="resultados" className="py-24 bg-[#1f2937] text-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+    // Fundo Escuro (Verde Profundo) para Alto Contraste
+    <section className="py-24 bg-[#0B2318] relative overflow-hidden text-white">
       
+      {/* Elementos Decorativos de Fundo */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3AB764] rounded-full mix-blend-overlay filter blur-[120px] opacity-20 animate-pulse"></div>
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#F58634] rounded-full mix-blend-overlay filter blur-[100px] opacity-10"></div>
+
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h2 className="font-serif text-4xl md:text-5xl mb-6 text-white">Resultados reais de quem vive sem dor</h2>
-          <p className="text-gray-300 text-lg">
-            Acompanhamento técnico detalhado com bioimpedância e avaliação postural fotográfica. 
-            Nós documentamos sua evolução.
+        
+        {/* Cabeçalho da Seção */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="font-serif text-4xl md:text-6xl mb-6 font-medium"
+          >
+            Não é mágica, é <span className="text-[#3AB764]">Ciência</span>.
+          </motion.h2>
+          <p className="text-gray-300 text-lg md:text-xl font-sans max-w-2xl mx-auto">
+            Resultados mensuráveis baseados em fisioterapia especializada. 
+            Veja como seu corpo vai se transformar:
           </p>
         </div>
 
-        {/* Comparison Simulation Cards */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Card 1: Postural Correction */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          {/* COLUNA 1: Destaque Principal (Escoliose) */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-gray-800 p-2 rounded-3xl"
+            className="lg:col-span-5 bg-gradient-to-br from-[#3AB764] to-[#258a46] rounded-[2rem] p-8 md:p-12 shadow-2xl relative overflow-hidden"
           >
-            <div className="bg-gray-900 rounded-[1.2rem] p-6 border border-gray-700">
-                <div className="flex justify-between items-end mb-4">
-                    <h3 className="text-[#3AB764] font-bold uppercase tracking-widest text-sm">Caso: Escoliose Juvenil</h3>
-                    <span className="text-xs text-gray-500">6 meses de tratamento</span>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                        <div className="relative h-64 bg-gray-700 rounded-xl overflow-hidden group">
-                           <img src="https://picsum.photos/300/400?grayscale&blur=2" alt="Antes" className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" />
-                           <div className="absolute top-2 left-2 bg-black/50 px-3 py-1 rounded text-xs font-bold text-white">ANTES</div>
-                           <div className="absolute bottom-4 left-0 w-full text-center text-xs text-gray-300 px-2">Desalinhamento Scapular</div>
-                        </div>
-                    </div>
-                    <div className="space-y-2">
-                        <div className="relative h-64 bg-gray-700 rounded-xl overflow-hidden group border-2 border-[#3AB764]">
-                           <img src="https://picsum.photos/301/400?grayscale&blur=2" alt="Depois" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
-                           <div className="absolute top-2 left-2 bg-[#3AB764] px-3 py-1 rounded text-xs font-bold text-white">DEPOIS</div>
-                           <div className="absolute bottom-4 left-0 w-full text-center text-xs text-white font-bold px-2">Correção de 85%</div>
-                        </div>
-                    </div>
-                </div>
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-white text-sm font-bold mb-6">
+                <Star size={16} fill="currentColor" /> Especialidade 
+              </div>
+              <h3 className="font-serif text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                Tratamento de Escoliose
+              </h3>
+              <p className="text-green-50 text-lg leading-relaxed mb-8">
+                Utilizamos técnicas com respaldo científico capazes de proporcionar melhora significativa na curvatura.
+              </p>
+              
+              <div className="bg-white/10 rounded-xl p-6 border border-white/20">
+                <p className="text-5xl font-bold text-white mb-2">40%</p>
+                <p className="text-green-100 text-sm font-medium uppercase tracking-wide">
+                  De melhora possível na curva em adolescentes graves (com uso de colete e exercícios).
+                </p>
+              </div>
+            </div>
+            {/* Pattern decorativo */}
+            <div className="absolute -bottom-10 -right-10 text-white/10 transform rotate-12">
+               <Activity size={200} />
             </div>
           </motion.div>
 
-          {/* Card 2: Testimonial */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div className="space-y-6">
-                <div className="flex gap-1 text-[#F58634]">
-                    {[1,2,3,4,5].map(i => <span key={i}>★</span>)}
+          {/* COLUNA 2: Grid de Benefícios */}
+          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+            {benefits.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:bg-[#F58634] hover:border-[#F58634] transition-all duration-300 hover:-translate-y-2 cursor-default"
+              >
+                <div className="w-12 h-12 bg-[#F58634] rounded-xl flex items-center justify-center text-white mb-6 group-hover:bg-white group-hover:text-[#F58634] transition-colors shadow-lg">
+                  {item.icon}
                 </div>
-                <p className="font-serif text-2xl text-white leading-relaxed">
-                    "Cheguei ao studio travada, com medo de me mexer. Hoje, não só estou sem dor, como descobri uma força que não sabia que tinha. O cuidado da Kissy e da equipe é surreal."
+                <h4 className="font-serif text-xl font-bold text-white mb-3 group-hover:text-white">
+                  {item.title}
+                </h4>
+                <p className="text-gray-400 text-sm leading-relaxed group-hover:text-white/90">
+                  {item.desc}
                 </p>
-                <div>
-                    <p className="font-bold text-lg text-white">Mariana Costa</p>
-                    <p className="text-[#3AB764] text-sm">Aluna há 2 anos</p>
-                </div>
-            </div>
-            
-            <div className="w-full h-px bg-gray-700"></div>
-
-             <div className="space-y-6">
-                <div className="flex gap-1 text-[#F58634]">
-                    {[1,2,3,4,5].map(i => <span key={i}>★</span>)}
-                </div>
-                <p className="font-serif text-2xl text-white leading-relaxed">
-                    "Ambiente impecável, limpo e super profissional. Sinto que tenho personal trainer e fisioterapeuta ao mesmo tempo."
-                </p>
-                <div>
-                    <p className="font-bold text-lg text-white">Roberto Almeida</p>
-                    <p className="text-[#3AB764] text-sm">Aluno de Pilates Clínico</p>
-                </div>
-            </div>
-          </motion.div>
+              </motion.div>
+            ))}
+          </div>
 
         </div>
       </div>
