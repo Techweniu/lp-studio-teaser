@@ -5,8 +5,6 @@ import { motion } from 'framer-motion';
 import { CheckCircle2, MessageCircle } from 'lucide-react';
 
 const Services: React.FC = () => {
-  // Lista reorganizada conforme pedido da cliente:
-  // 1. Dores/Hérnia (Prioridade) -> 2. Escoliose -> 3. Pilates -> 4. RPG
   const services = [
     {
       title: "Tratamento de Dores & Hérnias",
@@ -17,8 +15,16 @@ const Services: React.FC = () => {
       desc: "Protocolos baseados em evidências científicas para correção de curvas e postura em adolescentes e adultos."
     },
     {
+      title: "Pilates Clínico",
+      desc: "Atendimento individualizado com foco em reabilitação de lesões e patologias específicas, respeitando seus limites."
+    },
+    {
+      title: "Pilates em Grupo",
+      desc: "Aulas dinâmicas em turmas reduzidas, ideais para manutenção da saúde, condicionamento físico e socialização."
+    },
+    {
       title: "Pilates Contemporâneo",
-      desc: "Método atualizado focado em força, flexibilidade e controle corporal, respeitando a biomecânica atual."
+      desc: "Método atualizado focado em força, flexibilidade e controle corporal, utilizando equipamentos modernos."
     },
     {
       title: "RPG (Reeducação Postural Global)",
@@ -35,7 +41,7 @@ const Services: React.FC = () => {
             <h2 className="font-serif text-4xl md:text-5xl text-gray-900 mb-6">Nossos Serviços</h2>
             <p className="text-gray-600 text-lg mb-8 font-sans">
               Um menu completo de saúde para sua coluna. 
-              Do alívio da dor à correção postural, nossa técnica se adapta à sua necessidade.
+              Do alívio da dor à manutenção da saúde em grupo, temos a modalidade certa para você.
             </p>
             
             <a 
@@ -50,8 +56,8 @@ const Services: React.FC = () => {
             </a>
           </div>
 
-          {/* Lista de Serviços */}
-          <div className="md:w-2/3 grid gap-6">
+          {/* Lista de Serviços (Grid ajustado para 6 itens) */}
+          <div className="md:w-2/3 grid md:grid-cols-2 gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -59,13 +65,13 @@ const Services: React.FC = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex items-start gap-4 p-6 rounded-2xl bg-[#F9F9F9] hover:bg-[#FFCCAA]/10 transition-colors border border-transparent hover:border-[#FFCCAA]"
+                className="flex flex-col gap-3 p-6 rounded-2xl bg-[#F9F9F9] hover:bg-[#FFCCAA]/10 transition-colors border border-transparent hover:border-[#FFCCAA]"
               >
-                <CheckCircle2 className="text-[#3AB764] flex-shrink-0 mt-1" size={28} />
-                <div>
-                  <h3 className="font-serif text-2xl text-gray-900 mb-2">{service.title}</h3>
-                  <p className="text-gray-600 font-sans">{service.desc}</p>
+                <div className="flex items-center gap-3">
+                    <CheckCircle2 className="text-[#3AB764] flex-shrink-0" size={24} />
+                    <h3 className="font-serif text-xl text-gray-900 font-bold">{service.title}</h3>
                 </div>
+                <p className="text-gray-600 font-sans text-sm leading-relaxed pl-9">{service.desc}</p>
               </motion.div>
             ))}
           </div>
