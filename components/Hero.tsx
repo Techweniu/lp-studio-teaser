@@ -4,9 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Hero: React.FC = () => {
-  // Link direto para o WhatsApp
+  // Link direto para o WhatsApp (mantido o número do seu código anterior)
   const whatsappLink = "https://wa.me/5564996628508?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20no%20Studio%20Teaser.";
 
   return (
@@ -25,13 +26,16 @@ const Hero: React.FC = () => {
           <div className="inline-block px-4 py-1.5 rounded-full bg-[#3AB764]/10 text-[#3AB764] text-sm font-bold tracking-wide mb-2 font-sans">
             Novo Espaço em Itumbiara
           </div>
+          
           <h1 className="font-serif text-5xl lg:text-7xl leading-[1.1] text-gray-900 font-medium">
-            Pilates personalizado: <br />
-            <span className="italic text-gray-500">O cuidado que sua coluna merece.</span>
+            Pilates Teaser <br />
+            <span className="italic text-[#C5A266] font-light">O movimento cura</span>
           </h1>
+          
           <p className="text-lg text-gray-600 leading-relaxed max-w-lg font-sans">
-            Saia da dor e recupere sua qualidade de vida com fisioterapia especializada. 
-            No Studio Teaser, você conta com atendimento exclusivo: Fisioterapeuta + Estagiária em todas as sessões.
+            Promovemos saúde e autonomia através do movimento consciente. 
+            Protocolos científicos para tratar dores na coluna, hérnia de disco e 
+            escoliose com respeito à sua individualidade.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 font-sans">
@@ -41,15 +45,15 @@ const Hero: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#F58634] text-white rounded-full font-semibold text-lg hover:bg-[#d9732a] transition-all transform hover:-translate-y-1 shadow-xl shadow-orange-200"
             >
-              Agendar minha avaliação
+              Agendar Avaliação
               <ArrowRight size={20} />
             </a>
-            <a
-              href="#sobre"
+            <Link
+              href="#especialidades"
               className="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-gray-300 text-gray-700 rounded-full font-semibold text-lg hover:border-[#F58634] hover:text-[#F58634] transition-all"
             >
-              Conhecer o Studio
-            </a>
+              Conhecer Tratamentos
+            </Link>
           </div>
         </motion.div>
 
@@ -60,13 +64,11 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="relative flex justify-center lg:justify-end"
         >
-          {/* MUDANÇA AQUI: Removi h-[600px] e deixei h-auto para se adaptar à imagem */}
           <div className="relative z-10 rounded-tl-[8rem] rounded-br-[8rem] rounded-tr-3xl rounded-bl-3xl overflow-hidden shadow-2xl w-full max-w-[500px]">
-             
             <Image 
               src="/kissy.png" 
-              alt="Instrutora Kissy corrigindo aluna" 
-              width={800} // Valores de referência para qualidade
+              alt="Instrutora Kissy corrigindo aluna no Studio Teaser" 
+              width={800} 
               height={1000}
               className="w-full h-auto hover:scale-105 transition-transform duration-700"
               priority
