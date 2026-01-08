@@ -51,9 +51,7 @@ const Team: React.FC = () => {
               <h3 className="font-serif text-3xl md:text-4xl text-gray-900 mb-2">
                 Dra. Kissy
               </h3>
-              <p className="text-[#F58634] font-bold tracking-wide uppercase text-sm mb-6">
-                CREFITO: 161822-F
-              </p>
+              
               
               <p className="text-gray-600 leading-relaxed mb-8 text-lg">
                 Fisioterapeuta e fundadora do Studio Teaser. Dedica sua carreira a devolver a autonomia e qualidade de vida, tratando a causa real da dor através de protocolos científicos.
