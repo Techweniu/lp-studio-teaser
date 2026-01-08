@@ -1,9 +1,9 @@
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import Specialties from '../components/Specialties'; // <--- O NOVO ARQUIVO
 import About from '../components/About';
-import Results from '../components/Results'; // Seção nova (Benefícios)
 import Services from '../components/Services';
-import FAQ from '../components/FAQ'; // <--- Trazendo de volta as Dúvidas
+import FAQ from '../components/FAQ';
 import Location from '../components/Location';
 import Footer from '../components/Footer';
 
@@ -13,15 +13,14 @@ export default function Home() {
       <Navbar />
       <Hero />
       
-      {/* Results substitui 'Features' com foco nos benefícios reais do cliente */}
-      <Results /> 
+      {/* Specialties substitui o antigo Results/Features */}
+      {/* Motivo: Separar Patologias (Ciência) de Benefícios (Resultados) */}
+      <Specialties /> 
       
       <About />
       <Services />
       
-      {/* Seção de Dúvidas (importante pois tem link no menu) */}
       <FAQ />
-
       <Location />
       <Footer />
     </main>
