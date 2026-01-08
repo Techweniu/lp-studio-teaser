@@ -5,22 +5,24 @@ import { motion } from 'framer-motion';
 import { CheckCircle2, MessageCircle } from 'lucide-react';
 
 const Services: React.FC = () => {
+  // Lista reorganizada conforme pedido da cliente:
+  // 1. Dores/Hérnia (Prioridade) -> 2. Escoliose -> 3. Pilates -> 4. RPG
   const services = [
     {
-      title: "Pilates Clássico & Contemporâneo",
-      desc: "Método completo com aparelhos (Reformer, Cadillac, Chair) focado em força, flexibilidade e controle corporal."
+      title: "Tratamento de Dores & Hérnias",
+      desc: "Fisioterapia especializada para tratar a causa da dor nas costas e devolver sua funcionalidade e bem-estar."
     },
     {
-      title: "Tratamento de Escoliose",
-      desc: "Referência em tratamento especializado (com coletes e exercícios) para correção de curvas e postura em adolescentes e adultos."
+      title: "Tratamento Específico para Escoliose",
+      desc: "Protocolos baseados em evidências científicas para correção de curvas e postura em adolescentes e adultos."
+    },
+    {
+      title: "Pilates Contemporâneo",
+      desc: "Método atualizado focado em força, flexibilidade e controle corporal, respeitando a biomecânica atual."
     },
     {
       title: "RPG (Reeducação Postural Global)",
       desc: "Terapia manual focada em corrigir má postura, aliviar dores crônicas e realinhar a coluna vertebral."
-    },
-    {
-      title: "Tratamento de Dores & Hérnias",
-      desc: "Fisioterapia especializada para quem busca viver sem dor nas costas, tratando a causa do problema e devolvendo a funcionalidade."
     }
   ];
 
@@ -28,7 +30,7 @@ const Services: React.FC = () => {
     <section id="servicos" className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row gap-12">
-          {/* Header */}
+          {/* Cabeçalho Lateral */}
           <div className="md:w-1/3">
             <h2 className="font-serif text-4xl md:text-5xl text-gray-900 mb-6">Nossos Serviços</h2>
             <p className="text-gray-600 text-lg mb-8 font-sans">
@@ -37,7 +39,7 @@ const Services: React.FC = () => {
             </p>
             
             <a 
-              href="https://wa.me/5564996628508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20tratamentos."
+              href="https://wa.me/5564996628508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os."
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#F58634] font-bold hover:underline text-lg inline-flex items-center gap-2 group font-sans"
@@ -48,7 +50,7 @@ const Services: React.FC = () => {
             </a>
           </div>
 
-          {/* List */}
+          {/* Lista de Serviços */}
           <div className="md:w-2/3 grid gap-6">
             {services.map((service, index) => (
               <motion.div
