@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Instagram, Phone, Mail, ArrowUp } from 'lucide-react';
+import { Instagram, Facebook, Phone, Mail, ArrowUp } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
                  alt="Studio Teaser" 
                  width={180} 
                  height={60} 
-                 className="w-auto h-10 md:h-12 object-contain brightness-0 invert" // Filtro para deixar branco no fundo escuro
+                 className="w-auto h-10 md:h-12 object-contain brightness-0 invert" 
                />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
@@ -35,8 +35,9 @@ const Footer: React.FC = () => {
               Referência em Pilates, tratamento de dores e reabilitação em Itumbiara.
             </p>
             <div className="flex gap-4">
+              {/* Instagram */}
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/pilatesteaseriub" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#F58634] hover:border-[#F58634] transition-all text-white"
@@ -44,10 +45,32 @@ const Footer: React.FC = () => {
               >
                 <Instagram size={18} />
               </a>
+
+              {/* Facebook */}
+              <a 
+                href="https://www.facebook.com/people/Studio-Teaser/61577564057856/#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:border-[#1877F2] transition-all text-white"
+                aria-label="Facebook"
+              >
+                <Facebook size={18} />
+              </a>
+
+               {/* WhatsApp */}
+               <a 
+                href="https://wa.me/5564996628508" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all text-white"
+                aria-label="WhatsApp"
+              >
+                <Phone size={18} />
+              </a>
             </div>
           </div>
 
-          {/* 2. Mapa do Site (Explorar) */}
+          {/* 2. Mapa do Site */}
           <div>
             <h4 className="font-serif text-lg mb-6 text-[#F58634]">Explorar</h4>
             <ul className="space-y-3 text-sm text-gray-400">
@@ -60,7 +83,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* 3. Contato Direto (Sem Endereço) */}
+          {/* 3. Contato */}
           <div>
             <h4 className="font-serif text-lg mb-6 text-[#F58634]">Contato</h4>
             <ul className="space-y-4 text-sm text-gray-400">
@@ -70,7 +93,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-start gap-3 group">
                 <Mail size={18} className="text-[#F58634] mt-1 group-hover:text-white transition-colors" />
-                <a href="mailto:contato@studioteaser.com.br" className="group-hover:text-white transition-colors">contato@studioteaser.com.br</a>
+                <a href="mailto:teaserstudio2@gmail.com" className="group-hover:text-white transition-colors">teaserstudio2@gmail.com</a>
               </li>
             </ul>
           </div>
@@ -80,15 +103,15 @@ const Footer: React.FC = () => {
             <h4 className="font-serif text-lg mb-6 text-[#F58634]">Funcionamento</h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>Seg - Sex</span>
+                <span>Seg - Qui</span>
                 <span className="text-white font-medium">06:00 - 20:00</span>
               </li>
               <li className="flex justify-between border-b border-white/5 pb-2">
-                <span>Sábado</span>
-                <span className="text-white font-medium">08:00 - 12:00</span>
+                <span>Sexta</span>
+                <span className="text-white font-medium">07:00 - 11:00</span>
               </li>
               <li className="flex justify-between pt-1">
-                <span>Domingo</span>
+                <span>Sáb - Dom</span>
                 <span className="text-[#F58634]">Fechado</span>
               </li>
             </ul>
@@ -97,7 +120,21 @@ const Footer: React.FC = () => {
 
         {/* Rodapé Inferior */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>© {currentYear} Studio Teaser. Todos os direitos reservados.</p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <p>© {currentYear} Studio Teaser. Todos os direitos reservados.</p>
+            <span className="hidden md:inline opacity-30">|</span>
+            <p>
+              Desenvolvido por{' '}
+              <a 
+                href="https://www.weniu.com.br/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="font-bold hover:text-[#F58634] transition-colors"
+              >
+                weniu
+              </a>
+            </p>
+          </div>
           
           <button 
             onClick={scrollToTop} 
