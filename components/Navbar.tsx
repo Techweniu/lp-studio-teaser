@@ -1,110 +1,122 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import Link from 'next/link';
 import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // LISTA DE LINKS ATUALIZADA
+  const navLinks = [
+    { name: 'Início', href: '#hero' },
+    { name: 'Especialidades', href: '#especialidades' },
+    { name: 'Sobre', href: '#sobre' },
+    { name: 'Serviços', href: '#servicos' },
+    { name: 'Equipe', href: '#equipe' },
+    { name: 'Dúvidas', href: '#faq' },
+    { name: 'Avaliações', href: '#depoimentos' },
+    { name: 'Localização', href: '#localizacao' }, // <--- ADICIONADO AQUI
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Sobre', href: '#sobre' },
-    { name: 'Metodologia', href: '#metodologia' },
-    { name: 'Serviços', href: '#servicos' },
-    { name: 'Dúvidas', href: '#faq' }, // Alterado de Depoimentos para Dúvidas
-    { name: 'Localização', href: '#localizacao' },
-  ];
-
-  // Link do WhatsApp formatado
-  const whatsappLink = "https://wa.me/5564996628508?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20no%20Studio%20Teaser.";
-
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-2' : 'bg-transparent py-4'
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex flex-col leading-tight">
-          <a href="#" className="relative w-40 h-12 md:w-48 md:h-14 transition-transform hover:scale-105">
-            <Image 
-              src="/logo-full.png" 
-              alt="Teaser Pilates" 
-              fill
-              className="object-contain object-left"
-              priority
-            />
-          </a>
-        </div>
+      <div className="container mx-auto px-6 flex justify-between items-center h-20">
+        
+        {/* 1. Logo (Esquerda) */}
+        <Link href="#hero" className="relative z-50 flex-shrink-0">
+           <Image 
+             src="/logo-full.png" 
+             alt="Studio Teaser" 
+             width={180} 
+             height={60} 
+             className="w-auto h-10 md:h-12 object-contain"
+             priority
+           />
+        </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-8">
+        {/* 2. Desktop Menu (Centralizado e Ajustado) */}
+        {/* Adicionei 'xl:gap-8' para monitores maiores e 'gap-4' para menores para caber tudo */}
+        <div className="hidden lg:flex flex-1 justify-center items-center gap-4 xl:gap-6">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-gray-600 hover:text-[#F58634] transition-colors font-sans"
+              className={`text-xs xl:text-sm font-medium hover:text-[#F58634] transition-colors uppercase tracking-wide ${
+                isScrolled ? 'text-gray-600' : 'text-gray-800'
+              }`}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </div>
 
-        {/* CTA Button (WhatsApp) */}
-        <div className="hidden lg:block">
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-2.5 bg-[#F58634] text-white rounded-full font-semibold text-sm hover:bg-[#d9732a] transition-all transform hover:scale-105 shadow-lg shadow-orange-200 font-sans"
-          >
-            Agendar Avaliação
-          </a>
+        {/* 3. Botão de Ação (Direita) */}
+        <div className="hidden lg:flex flex-shrink-0">
+            <Link
+                href="https://wa.me/5564996628508"
+                target="_blank"
+                className="px-6 py-2.5 bg-[#F58634] text-white rounded-full text-sm font-bold hover:bg-[#d9732a] transition-transform hover:scale-105 shadow-lg shadow-orange-200"
+            >
+                Agendar Agora
+            </Link>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Menu Button */}
         <button
-          className="lg:hidden text-gray-700 focus:outline-none"
+          className="lg:hidden relative z-50 text-gray-800"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
-      </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 p-6 flex flex-col gap-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-lg font-medium text-gray-800 py-2 border-b border-gray-50 hover:text-[#F58634] font-sans"
-              onClick={() => setIsMobileMenuOpen(false)}
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: 'tween' }}
+              className="fixed inset-0 bg-white z-40 flex flex-col justify-center items-center gap-6 lg:hidden"
             >
-              {link.name}
-            </a>
-          ))}
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 block w-full text-center px-6 py-3 bg-[#F58634] text-white rounded-full font-bold shadow-md font-sans"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Agendar Avaliação
-          </a>
-        </div>
-      )}
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-xl font-serif text-gray-900 hover:text-[#F58634]"
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Link
+                href="https://wa.me/5564996628508"
+                target="_blank"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="mt-4 px-8 py-4 bg-[#F58634] text-white rounded-full text-xl font-bold"
+              >
+                Agendar Agora
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </nav>
   );
 };
