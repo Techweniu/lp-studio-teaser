@@ -3,24 +3,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Instagram, Linkedin } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 const Team: React.FC = () => {
-  const team = [
-    {
-      name: "Dra. Kissy", // Nome sugerido pelo arquivo de imagem, altere se necessário
-      role: "Fisioterapeuta & Fundadora",
-      specialties: "Especialista em Coluna e Escoliose",
-      image: "/kissy.png", // Usando a mesma imagem da Hero por enquanto
-      bio: "Com mais de 10 anos de experiência, dedica sua vida a devolver a autonomia e o movimento sem dor para seus pacientes."
-    },
-    {
-      name: "Equipe Técnica",
-      role: "Fisioterapeutas & Estagiários",
-      specialties: "Reabilitação e Pilates",
-      image: "/public/kessi-2.png", // Placeholder ou outra foto que você tenha
-      bio: "Nossa equipe passa por treinamento constante nos protocolos exclusivos do Studio Teaser para garantir segurança total."
-    }
+  const topics = [
+    "Fisioterapeuta",
+    "Instrutora de Pilates",
+    "Especialista em Escoliose",
+    "Especialista em Postura e Patologias da Coluna",
+    "Mestre pela UFTM em Envelhecimento e Estilo de Vida"
   ];
 
   return (
@@ -30,46 +21,63 @@ const Team: React.FC = () => {
           <span className="text-[#F58634] font-bold tracking-wider uppercase text-sm mb-2 block">
             Quem cuida de você
           </span>
+          {/* TÍTULO GENÉRICO MANTIDO PARA FUTURA EXPANSÃO */}
           <h2 className="font-serif text-4xl md:text-5xl text-gray-900 mb-6">
-            Conheça nossa equipe
+            Conheça nossa Equipe
           </h2>
           <p className="text-gray-600 text-lg">
             Profissionais apaixonados por movimento e ciência, prontos para acolher sua história.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          {team.map((member, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="group relative bg-[#F9F9F9] rounded-[2rem] overflow-hidden hover:shadow-xl transition-all duration-300"
-            >
-              <div className="aspect-[4/5] relative overflow-hidden">
-                {/* Fallback para imagem se não existir */}
-                <div className="absolute inset-0 bg-gray-200 animate-pulse" />
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={500}
-                  height={600}
-                  className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
-                
-                <div className="absolute bottom-0 left-0 w-full p-8 text-white">
-                  <h3 className="font-serif text-2xl mb-1">{member.name}</h3>
-                  <p className="text-[#F58634] font-medium mb-4">{member.role}</p>
-                  <p className="text-gray-300 text-sm leading-relaxed border-l-2 border-[#F58634] pl-4">
-                    {member.bio}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+        {/* Layout Single Profile (Destaque Atual) */}
+        <div className="max-w-5xl mx-auto bg-[#F9F9F9] rounded-[3rem] overflow-hidden shadow-xl border border-gray-100">
+          <div className="flex flex-col md:flex-row items-center">
+            
+            {/* Coluna da Imagem */}
+            <div className="md:w-1/2 relative h-[500px] md:h-[600px] w-full bg-gray-200">
+              <Image
+                src="/kessi-2.png" 
+                alt="Dra. Kissy - Fisioterapeuta"
+                fill
+                className="object-cover object-top" 
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent md:hidden" />
+            </div>
+
+            {/* Coluna de Conteúdo */}
+            <div className="md:w-1/2 p-8 md:p-12 lg:p-16">
+              <h3 className="font-serif text-3xl md:text-4xl text-gray-900 mb-2">
+                Dra. Kissy
+              </h3>
+              <p className="text-[#F58634] font-bold tracking-wide uppercase text-sm mb-6">
+                CREFITO: 161822-F
+              </p>
+              
+              <p className="text-gray-600 leading-relaxed mb-8 text-lg">
+                Fisioterapeuta e fundadora do Studio Teaser. Dedica sua carreira a devolver a autonomia e qualidade de vida, tratando a causa real da dor através de protocolos científicos.
+              </p>
+
+              {/* Lista de Qualificações */}
+              <ul className="space-y-4">
+                {topics.map((item, index) => (
+                  <motion.li 
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-start gap-3"
+                  >
+                    <CheckCircle2 className="text-[#3AB764] flex-shrink-0 mt-1" size={24} />
+                    <span className="text-gray-700 font-medium">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
