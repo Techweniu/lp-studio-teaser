@@ -59,7 +59,7 @@ const Specialties: React.FC = () => {
               Não é mágica, é ciência.
             </h2>
             <p className="text-gray-600 text-lg">
-              Utilizamos protocolos científicos de realinhamento da postura e correção.
+              Utilizamos protocolos de exercícios de realinhamento da postura e correção.
             </p>
           </motion.div>
 
