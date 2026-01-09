@@ -104,7 +104,10 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-gray-400">
               <li className="flex justify-between border-b border-white/5 pb-2">
                 <span>Seg - Qui</span>
-                <span className="text-white font-medium">06:00 - 20:00</span>
+                <div className="flex flex-col items-end text-right">
+                  <span className="text-white font-medium">06:00 - 12:00</span>
+                  <span className="text-white font-medium">13:00 - 20:00</span>
+                </div>
               </li>
               <li className="flex justify-between border-b border-white/5 pb-2">
                 <span>Sexta</span>
