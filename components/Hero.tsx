@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
           
           <p className="text-lg text-gray-600 leading-relaxed max-w-lg font-sans">
             Promovemos saúde e autonomia através do movimento consciente. 
-            Protocolos científicos para tratar dores na coluna, hérnia de disco e 
+            Protocolos de exercícios para tratar dores na coluna, hérnia de disco e 
             escoliose com respeito à sua individualidade.
           </p>
           
