@@ -7,17 +7,13 @@ import { CheckCircle2, MessageCircle, Users } from 'lucide-react';
 const Services: React.FC = () => {
   const services = [
     {
-      title: "Tratamento de Dores & Hérnias",
-      desc: "Fisioterapia especializada para tratar a causa da dor nas costas e devolver sua funcionalidade e bem-estar."
+      title: "Pilates Contemporâneo",
+      desc: "Método atualizado focado em força, flexibilidade e controle corporal, utilizando equipamentos modernos."
     },
     {
       title: "Pilates Clínico",
       desc: "Atendimento individualizado com foco em reabilitação de lesões e patologias específicas, respeitando seus limites.",
       badge: "Turmas Reduzidas" // Novo campo para o destaque
-    },
-    {
-      title: "Pilates Contemporâneo",
-      desc: "Método atualizado focado em força, flexibilidade e controle corporal, utilizando equipamentos modernos."
     },
     {
       title: "Tratamento Específico para Escoliose",
